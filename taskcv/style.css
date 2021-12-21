@@ -54,7 +54,10 @@ main {
     font-size:30px;
     margin-left:40px;
   }
-   
+  .cvbox{
+    grid-row: span 4;
+    background-color:rgb(203, 172, 216);
+  } 
   .nexted_box > a:hover{
     text-decoration :none;
   }

@@ -4,7 +4,7 @@ let personFromStorage = getFromStorage("users") || saveToStorage(personList);
 let dynamicData = [...personFromStorage];
 console.log(personFromStorage);
 
-initList();
+/*initList();
 
 function initList() {
   let cvbox = document.querySelector(".inputUserBox");
@@ -12,7 +12,7 @@ function initList() {
     cvbox.innerHTML += ` <div class="box"><a href="#addNew?id=${data.id}" >${data.firstName} ${data.lastName}</a></div>`;
   });
 }
-
+*/
 let cvbox = document.querySelector(".nexted_box");
 cvbox.innerHTML += `<div class="cvbox"><a href="#addNew?id">+</a></div>`;
 
@@ -21,8 +21,8 @@ initGridList();
 function initGridList() {
   let box = document.querySelector(".cvbox");
 
-  personList.forEach((cvbox) => {
-    box.innerHTML += `<div class="nexted_box">
+  personFromStorage.forEach((cvbox) => {
+    box.innerHTML += `<div class="cvbox">
                            <a href="#Anahit?id=${cvbox.id}">${cvbox.firstName} ${cvbox.lastName}</a> 
                       </div>`;
   });
@@ -56,7 +56,7 @@ window.addEventListener("hashchange", () => {
 });
 
 function getUserById(id) {
-  const personObj = personList.find(function (person) {
+  const personObj = personFromStorage.find(function (person) {
     return person.id == id;
   });
   return personObj;
